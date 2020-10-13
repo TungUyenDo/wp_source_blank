@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ page_title }}</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/images/logo.png">
+</head>
+
+<body>
+
+    <main class="main_wapper">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- libs  ---------------------------------------------------------------->
+    <script src="./assets/libs/jquery/jquery-3.4.1.min.js"></script>
+    <script src="./assets/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/libs/slick/slick.min.js"></script>
+    <script src="./assets/libs/wow.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('body').on('click', '.popup-news__close', function (event) {
+            $('.popup-news').removeClass("active");
+        })
+
+        $('form').submit(function (event) {
+            event.preventDefault();
+            $(".submit-form").prop('disabled', true);
+            $(".loading").addClass("active");
+            var formData = {
+                'name': $(this).find('input[name=name]').val(),
+                'email': $(this).find('input[name=email]').val(),
+                'phone': $(this).find('input[name=phone]').val(),
+                'note': $(this).find('input[name=note]').val(),
+                'utm_source': $('#utm-source').val(),
+                'utm_medium': $('#utm-medium').val(),
+                'utm_campaign': $('#utm-campaign').val(),
+                'utm_content': $('#utm-content').val(),
+            };
+            $.ajax({
+                type: 'POST',
+                url: 'http://sunshine-diamond.com/api/contact-post',
+                data: formData, // our data object
+                dataType: 'json',
+                _token: "ukT5QzNn2mqDpoA4PDcYFGBjIwOnC2NcxaedGURW",
+            })
+                .done(function (data) {
+                    $(".loading").removeClass("active");
+                    $('form input').val('');
+                    $(".message").addClass("active");
+                    $(".message__title").text("Bạn đã đăng ký tư vấn thành công.");
+                })
+                .fail(function () {
+                    $(".loading").removeClass("active");
+                    $('form input').val('');
+                    $(".message").addClass("active");
+                    $(".message__title").text("Vui lòng nhập đủ thông tin.");
+                });
+
+        });
+
+    </script>
+
+    <!-- my js  --------------------------------------------------------------->
+    <script src="./js/script.js"></script>
+
+
+</body>
+
+</html>
