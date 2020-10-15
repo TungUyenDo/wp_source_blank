@@ -11,12 +11,12 @@ const globImporter = require("node-sass-glob-importer");
 const generateHtmlPlugins = () =>
     glob.sync("./src/views/pages/*.twig").map(
         (dir) =>
-        new HtmlWebpackPlugin({
-            filename: path.basename(dir).replace(".twig", ".html"), // Output
-            template: dir, // Input
-            title: "Custom template using Handlebars",
-            chunks: true,
-        })
+            new HtmlWebpackPlugin({
+                filename: path.basename(dir).replace(".twig", ".html"), // Output
+                template: dir, // Input
+                title: "Custom template using Handlebars",
+                chunks: true,
+            })
     );
 
 module.exports = {
@@ -32,50 +32,64 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.twig$/,
-                use: [
-                    "raw-loader",
-                    {
-                        loader: "twig-html-loader",
-                        options: {
-                            data: {},
+            test: /\.twig$/,
+            use: [
+                "raw-loader",
+                {
+                    loader: "twig-html-loader",
+                    options: {
+                        data: {},
+                    },
+                },
+            ],
+        },
+        {
+            test: /\.(scss|css)$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                {
+                    loader: "css-loader",
+                    options: {},
+                },
+                {
+                    loader: "sass-loader",
+                    options: {
+                        sassOptions: {
+                            importer: globImporter(),
                         },
                     },
-                ],
-            },
-            {
-                test: /\.(scss|css)$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: {},
-                    },
-                    {
-                        loader: "sass-loader",
-                        options: {
-                            sassOptions: {
-                                importer: globImporter(),
-                            },
-                        },
-                    },
-                ],
-            },
+                },
+            ],
+        },
 
-            {
-                test: /\.(woff|woff2|ttf|eot|svg)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
-                loader: "url-loader?name=assets/fonts/[name].[ext]",
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: [{
+        {
+            test: /\.(woff|woff2|ttf|eot|svg)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
+            use: [
+                {
+                    loader: "file-loader",
+                    options: {
+                        limit: false,
+                        name: '[name].[ext]',
+                        outputPath: "assets/fonts",
+                        publicPath: '../assets/fonts'
+                    },
+                },
+            ],
+        },
+        {
+            test: /\.(png|jpg|gif)$/,
+            use: [
+                {
                     loader: "url-loader",
                     options: {
-                        limit: 8192,
-                        name: "/assets/images/[name].[ext]",
+                        limit: false,
+                        name: "[name].[ext]",
+                        outputPath: "assets/images",
+                        publicPath: '../assets/images'
                     },
-                }, ],
-            },
+                },
+            ],
+        },
         ],
     },
     plugins: [
@@ -85,17 +99,21 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [{
-                    from: "src/assets/libs",
-                    to: "assets/libs"
-                },
-                {
-                    from: "src/assets/images",
-                    to: "assets/images"
-                },
-                {
-                    from: "src/js",
-                    to: "js"
-                },
+                from: "src/assets/libs",
+                to: "assets/libs"
+            },
+            {
+                from: "src/assets/font-awesome",
+                to: "assets/font-awesome"
+            },
+            {
+                from: "src/assets/images",
+                to: "assets/images"
+            },
+            {
+                from: "src/js",
+                to: "js"
+            },
             ],
         }),
         ...generateHtmlPlugins(),

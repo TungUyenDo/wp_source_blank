@@ -1,7 +1,43 @@
-@import '../assets/fonts/UTM_centur_bold/UTMCenturBold.css';
-@import '../assets/fonts/UTM_centur_bold_italic/UTMCenturBoldItalic.css';
-@import '../assets/fonts/UTM_centur_italic/UTMCenturItalic.css';
-@import '../assets/fonts/UTM_centur_regular/UTMCentur.css';
+
+@font-face {
+    font-family: 'UTMCenturBold';
+    src: url('../assets/fonts/UTM_centur_bold/UTMCenturBold.eot');
+    src: url('../assets/fonts/UTM_centur_bold/UTMCenturBold.eot') format('embedded-opentype'),
+        url('../assets/fonts/UTM_centur_bold/UTMCenturBold.woff2') format('woff2'),
+        url('../assets/fonts/UTM_centur_bold/UTMCenturBold.woff') format('woff'),
+        url('../assets/fonts/UTM_centur_bold/UTMCenturBold.ttf') format('truetype'),
+        url('../assets/fonts/UTM_centur_bold/UTMCenturBold.svg#UTMCenturBold') format('svg');
+}
+
+@font-face {
+    font-family: 'UTMCenturBoldItalic';
+    src: url('../assets/fonts/UTM_centur_bold_italic/UTMCenturBoldItalic.eot');
+    src: url('../assets/fonts/UTM_centur_bold_italic/UTMCenturBoldItalic.eot') format('embedded-opentype'),
+        url('../assets/fonts/UTM_centur_bold_italic/UTMCenturBoldItalic.woff2') format('woff2'),
+        url('../assets/fonts/UTM_centur_bold_italic/UTMCenturBoldItalic.woff') format('woff'),
+        url('../assets/fonts/UTM_centur_bold_italic/UTMCenturBoldItalic.ttf') format('truetype'),
+        url('../assets/fonts/UTM_centur_bold_italic/UTMCenturBoldItalic.svg#UTMCenturBoldItalic') format('svg');
+}
+
+@font-face {
+    font-family: 'UTMCenturItalic';
+    src: url('../assets/fonts/UTM_centur_italic/UTMCenturItalic.eot');
+    src: url('../assets/fonts/UTM_centur_italic/UTMCenturItalic.eot') format('embedded-opentype'),
+        url('../assets/fonts/UTM_centur_italic/UTMCenturItalic.woff2') format('woff2'),
+        url('../assets/fonts/UTM_centur_italic/UTMCenturItalic.woff') format('woff'),
+        url('../assets/fonts/UTM_centur_italic/UTMCenturItalic.ttf') format('truetype'),
+        url('../assets/fonts/UTM_centur_italic/UTMCenturItalic.svg#UTMCenturItalic') format('svg');
+}
+
+@font-face {
+    font-family: 'UTMCentur';
+    src: url('../assets/fonts/UTM_centur_regular/UTMCentur.eot');
+    src: url('../assets/fonts/UTM_centur_regular/UTMCentur.eot') format('embedded-opentype'),
+        url('../assets/fonts/UTM_centur_regular/UTMCentur.woff2') format('woff2'),
+        url('../assets/fonts/UTM_centur_regular/UTMCentur.woff') format('woff'),
+        url('../assets/fonts/UTM_centur_regular/UTMCentur.ttf') format('truetype'),
+        url('../assets/fonts/UTM_centur_regular/UTMCentur.svg#UTMCentur') format('svg');
+}    
 
 // font family
 $UTMCentur: "UTMCentur";

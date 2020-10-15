@@ -2,9 +2,10 @@
     "name": "wp",
     "version": "1.0.0",
     "description": "",
-    "main": "webpack.config.js",
+    "main": "webpack.common.js",
     "dependencies": {
         "build": "^0.1.4",
+        "css-minimizer-webpack-plugin": "^1.1.5",
         "node-sass": "^4.14.1",
         "node-sass-glob-importer": "^5.3.2"
     },
@@ -24,17 +25,17 @@
         "twig-html-loader": "^0.1.7",
         "twig-loader": "^0.5.3",
         "url-loader": "^4.1.0",
-        "webpack": "^4.43.0",
-        "webpack-cli": "^3.3.11",
+        "webpack": "^4.44.2",
+        "webpack-cli": "^3.3.12",
         "webpack-dev-middleware": "^3.7.2",
         "webpack-dev-server": "^3.11.0",
         "webpack-merge": "^4.2.2"
     },
     "scripts": {
-        "start": "webpack-dev-server --config webpack.common.js --open",
-        "build": "webpack --config webpack.common.js",
+        "start": "webpack-dev-server --config webpack.common.js --open --mode development",
+        "build": "webpack --config webpack.prod.js --mode production",
         "clean": "rimraf dist"
     },
     "author": "UyenDo",
-    "license": "06/2020"
+    "license": "10/2020"
 }
