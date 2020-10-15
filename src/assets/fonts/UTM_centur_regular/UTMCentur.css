@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'UTMCentur';
-    src: url('./UTMCentur.eot');
-    src: url('./UTMCentur.eot') format('embedded-opentype'),
-        url('./UTMCentur.woff2') format('woff2'),
-        url('./UTMCentur.woff') format('woff'),
-        url('./UTMCentur.ttf') format('truetype'),
-        url('./UTMCentur.svg#UTMCentur') format('svg');
-}
