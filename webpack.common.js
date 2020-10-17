@@ -99,10 +99,6 @@ const config = {
                 to: "assets/libs"
             },
             {
-                from: "src/assets/font-awesome",
-                to: "assets/font-awesome"
-            },
-            {
                 from: "src/assets/images",
                 to: "assets/images"
             },

@@ -3,71 +3,74 @@
 
 {% block content %}
 <div class="container" style="margin-top: 70px; margin-bottom: 70px;">
-    <figure style="max-width: 100px" class="overflow-hidden">
-        <img class="w-100" src="./assets/images/logo.jpg" alt="logo">
-    </figure>
-    <h3>All Pages</h3>
-    <ul class="menu">
-        {% set menu = [
+	<figure style="max-width: 100px" class="overflow-hidden">
+		<img class="w-100" src="./assets/images/logo.jpg" alt="logo">
+	</figure>
+	<h3>
+		All Pages
+		<i class="las la-radiation"></i>
+	</h3>
+	<ul class="menu">
+		{% set menu = [
             {link: "login" },
             {link: "admin" },
         ] %}
 
-			{% for link in menu %}
-        <li>
-            <a target="_blank" href="{{ link.link }}.html">{{ link.link }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+		{% for link in menu %}
+		<li>
+			<a target="_blank" href="{{ link.link }}.html">{{ link.link }}</a>
+		</li>
+		{% endfor %}
+	</ul>
 </div>
 <style>
-		.menu {
-			padding: 20px 30px;
-			margin: 0;
-			list-style: none;
-			position: relative;
-			display: flex;
-			flex-wrap: wrap;
-		}
+	.menu {
+		padding: 20px 30px;
+		margin: 0;
+		list-style: none;
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+	}
 
-		.menu li {
-			margin: 10px 0;
-			padding-left: 25px;
-			position: relative;
-			width: 30%;
-		}
+	.menu li {
+		margin: 10px 0;
+		padding-left: 25px;
+		position: relative;
+		width: 30%;
+	}
 
-		.menu li::before {
-			background-color: rgb(226, 184, 76);
-			position: absolute;
-			content: '';
-			width: 9px;
-			height: 9px;
-			left: 3px;
-			top: 7px;
-		}
+	.menu li::before {
+		background-color: rgb(226, 184, 76);
+		position: absolute;
+		content: '';
+		width: 9px;
+		height: 9px;
+		left: 3px;
+		top: 7px;
+	}
 
-		.menu li::after {
-			border: #e3ba54 1px solid;
-			background: #fff;
-			position: absolute;
-			content: '';
-			width: 9px;
-			height: 9px;
-			left: 0;
-			top: 5px;
-		}
+	.menu li::after {
+		border: #e3ba54 1px solid;
+		background: #fff;
+		position: absolute;
+		content: '';
+		width: 9px;
+		height: 9px;
+		left: 0;
+		top: 5px;
+	}
 
-		.menu a {
-			color: #000;
-			font-weight: 500;
-			cursor: pointer;
-			position: relative;
-			font-size: 16px;
-		}
+	.menu a {
+		color: #000;
+		font-weight: 500;
+		cursor: pointer;
+		position: relative;
+		font-size: 16px;
+	}
 
-		.menu a:hover {
-			color: #6d30ab;
-		}
+	.menu a:hover {
+		color: #6d30ab;
+	}
 </style>
 {% endblock %}
